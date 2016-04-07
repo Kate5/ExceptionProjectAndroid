@@ -14,14 +14,14 @@ import com.example.gdev.exceptionproject.dataModel.Listing;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "foot_print";
-    private String userId = "CFE5C697-0260-F7C3-FFF7-6C60B53D7800";
+    //private String userId = "CFE5C697-0260-F7C3-FFF7-6C60B53D7800";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Backendless.initApp(this, "D8D9685E-D55A-01B2-FF18-00F927E66C00", "AC7FB683-64ED-E180-FF83-A8729EC0A700", "v1");
-        Backendless.setUrl("http://10.0.1.91:9000");
+        Backendless.initApp(this, "574D9C70-100F-8930-FF55-59F4A0F8D100", "C8538257-99B5-E4E0-FF2F-B58585FD4900", "v1");
+        Backendless.setUrl("http://api.backendless.com");
 
         Backendless.Data.mapTableToClass("Listing", Listing.class);
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void testByFindingUser() {
         Listing listing = new Listing();
-        Backendless.Persistence.save(listing, new AsyncCallback<Listing>() {
+        Backendless.Data.of(Listing.class).save( listing, new AsyncCallback<Listing>() {
             @Override
             public void handleResponse(Listing response) {
                 Log.i(TAG, "New Listing instance has been saved");
